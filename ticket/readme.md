@@ -4,11 +4,11 @@
 
 Akka in ActionのコードをProto.Actorに置き換えたら、のコードです。  
 
-流れは下記の通りです。  
+アクターは下記の通りです。  
 
-Root Actor <-> Box Office <-> Ticket Seller 
+Root <-> Box Office <-> Ticket Seller 
 
-場合によってはTicket SellerからBoxOfficeを経由せずにRoot Actorに直接メッセージを送ることもあり、  
+場合によってはTicket SellerからBoxOfficeを経由せずにRootに直接メッセージを送ることもあり、  
 Ticket Sellerアクターはイベントごとに存在します。    
 
 ## 使い方
