@@ -1,7 +1,6 @@
 package order
 
 import (
-	"fmt"
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/ytake/protoactor-go-http/ticket/ticket_seller"
 )
@@ -18,7 +17,6 @@ func NewTicketSellerActor() actor.Actor {
 func (r *TicketSeller) Receive(context actor.Context) {
 	switch msg := context.Message().(type) {
 	case *ticket_seller.Add:
-		fmt.Println("add event")
 		ticket_seller.CreateEvent(msg.Name, msg.Tickets, context.Self().GetId())
 	case *ticket_seller.GetEvent:
 		context.Respond(ticket_seller.GetEventByID(context.Self().GetId()))
