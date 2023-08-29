@@ -4,37 +4,39 @@ import (
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/labstack/echo/v4"
 	"github.com/ytake/protoactor-go-http/ticket/message"
-	"github.com/ytake/protoactor-go-http/ticket/payload"
 	"github.com/ytake/protoactor-go-http/ticket/ticket_actor"
 	"net/http"
 	"time"
 )
 
-type GetEvent struct {
+// CancelEvent is a router
+type CancelEvent struct {
 	actor *ticket_actor.Root
 }
 
-// NewGetEvent create new instance
-func NewGetEvent(actor *ticket_actor.Root) *GetEvent {
-	return &GetEvent{
+// NewCancelEvent create new instance
+func NewCancelEvent(actor *ticket_actor.Root) *CancelEvent {
+	return &CancelEvent{
 		actor: actor,
 	}
 }
 
-func (ce *GetEvent) retrievePID() *actor.PID {
+// retrievePID is a router
+func (ce *CancelEvent) retrievePID() *actor.PID {
 	return ce.actor.PID()
 }
 
-func (ce *GetEvent) Handle(c echo.Context) error {
-	ev := &message.GetEvent{Name: c.Param("name")}
+func (ce *CancelEvent) Handle(c echo.Context) error {
+	ev := &message.CancelEvent{Name: c.Param("name")}
 	future := ce.actor.ActorSystem().Root.RequestFuture(ce.retrievePID(), ev, 2*time.Second)
 	r, err := future.Result()
 	if err != nil {
 		return c.NoContent(http.StatusBadRequest)
 	}
-	p := payload.NewEvent(r)
-	if !p.IsValid() {
-		return c.NoContent(http.StatusNotFound)
+	switch r.(type) {
+	case *message.Cancel:
+		return c.NoContent(http.StatusOK)
+	default:
+		return c.NoContent(http.StatusBadRequest)
 	}
-	return c.JSON(http.StatusOK, p)
 }

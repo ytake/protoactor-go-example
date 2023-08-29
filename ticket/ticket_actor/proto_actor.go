@@ -3,7 +3,7 @@ package ticket_actor
 import (
 	"fmt"
 	"github.com/asynkron/protoactor-go/actor"
-	"github.com/ytake/protoactor-go-http/ticket/order"
+	"github.com/ytake/protoactor-go-http/ticket/box_office"
 )
 
 type Root struct {
@@ -26,10 +26,10 @@ func NewBoxOfficeActorSystem() (*Root, error) {
 	system := actor.NewActorSystem()
 	supervisor := actor.NewOneForOneStrategy(10, 1000, NewStopDirective().Decider())
 	props := actor.PropsFromProducer(
-		order.NewBoxOfficeAPIActor,
+		box_office.NewBoxOfficeAPIActor,
 		actor.WithSupervisor(supervisor),
 	)
-	pid, err := system.Root.SpawnNamed(props, order.BoxOfficeName)
+	pid, err := system.Root.SpawnNamed(props, box_office.BoxOfficeName)
 	return &Root{
 		system: system,
 		pid:    pid,

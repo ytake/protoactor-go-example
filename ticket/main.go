@@ -16,5 +16,6 @@ func main() {
 	e.POST("/events/:name", route.NewCreateEvent(as).Handle)
 	e.GET("/events/:name", route.NewGetEvent(as).Handle)
 	e.GET("/events", route.NewGetEvents(as).Handle)
+	e.DELETE("/events/:name", route.NewCancelEvent(as).Handle)
 	e.Logger.Fatal(e.Start(":8080"))
 }

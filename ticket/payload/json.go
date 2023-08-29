@@ -1,8 +1,7 @@
 package payload
 
 import (
-	"github.com/ytake/protoactor-go-http/ticket/box_office"
-	"github.com/ytake/protoactor-go-http/ticket/ticket_seller"
+	"github.com/ytake/protoactor-go-http/ticket/message"
 )
 
 // Event is a payload
@@ -15,11 +14,13 @@ type Events struct {
 	E []Event `json:"events,omitempty"`
 }
 
+type CancelEvent struct{}
+
 // NewEvents is a constructor for Event
 func NewEvents(i interface{}) Events {
 	var ev Events
 	switch msg := i.(type) {
-	case ticket_seller.Events:
+	case message.Events:
 		for _, v := range msg {
 			ev.E = append(ev.E, Event{
 				Tickets: v.Tickets,
@@ -34,13 +35,13 @@ func NewEvents(i interface{}) Events {
 func NewEvent(i interface{}) Event {
 	var ev Event
 	switch msg := i.(type) {
-	case *ticket_seller.Event:
+	case *message.Event:
 		ev = Event{
 			Tickets: msg.Tickets,
 			Name:    msg.Name,
 		}
 		return ev
-	case *box_office.EventNotFound:
+	case *message.EventNotFound:
 		return ev
 	}
 	return ev

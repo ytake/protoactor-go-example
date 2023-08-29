@@ -3,13 +3,14 @@ package route
 import (
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/labstack/echo/v4"
-	"github.com/ytake/protoactor-go-http/ticket/box_office"
+	"github.com/ytake/protoactor-go-http/ticket/message"
 	"github.com/ytake/protoactor-go-http/ticket/payload"
 	"github.com/ytake/protoactor-go-http/ticket/ticket_actor"
 	"net/http"
 	"time"
 )
 
+// GetEvents is a router
 type GetEvents struct {
 	actor *ticket_actor.Root
 }
@@ -26,9 +27,9 @@ func (ce *GetEvents) retrievePID() *actor.PID {
 }
 
 func (ce *GetEvents) Handle(c echo.Context) error {
-	ev := &box_office.GetEvents{}
-	future := ce.actor.ActorSystem().Root.RequestFuture(ce.retrievePID(), ev, 2*time.Second)
-	r, err := future.Result()
+	ev := &message.GetEvents{}
+	f := ce.actor.ActorSystem().Root.RequestFuture(ce.retrievePID(), ev, 2*time.Second)
+	r, err := f.Result()
 	if err != nil {
 		return c.NoContent(http.StatusBadRequest)
 	}

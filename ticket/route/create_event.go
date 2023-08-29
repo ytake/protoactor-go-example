@@ -3,7 +3,6 @@ package route
 import (
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/labstack/echo/v4"
-	"github.com/ytake/protoactor-go-http/ticket/box_office"
 	"github.com/ytake/protoactor-go-http/ticket/message"
 	"github.com/ytake/protoactor-go-http/ticket/ticket_actor"
 	"net/http"
@@ -47,9 +46,9 @@ func (ce *CreateEvent) Handle(c echo.Context) error {
 		return c.NoContent(http.StatusBadRequest)
 	}
 	switch r.(type) {
-	case *box_office.EventCreated:
+	case *message.EventCreated:
 		return c.String(http.StatusOK, "ok")
-	case *box_office.EventExists:
+	case *message.EventExists:
 		return c.String(http.StatusConflict, "already exists")
 	}
 	return c.NoContent(http.StatusNoContent)

@@ -49,3 +49,12 @@ $ curl --request GET \
 $ curl --request GET \
   --url http://127.0.0.1:8080/events/frank_zappa_live1985
 ```
+
+### チケット販売の停止
+
+作成済みのチケットを削除します
+
+```bash
+$ curl --request DELETE \
+  --url http://127.0.0.1:8080/events/frank_zappa_live1985
+```
