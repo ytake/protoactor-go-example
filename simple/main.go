@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/asynkron/protoactor-go/actor"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/asynkron/protoactor-go/actor"
 )
 
 type MyActor struct{}

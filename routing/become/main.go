@@ -1,9 +1,10 @@
 package main
 
 import (
+	"log"
+
 	console "github.com/asynkron/goconsole"
 	"github.com/asynkron/protoactor-go/actor"
-	"log"
 )
 
 // SwitchRouter is actor

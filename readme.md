@@ -1,12 +1,18 @@
 # proto actor go / http-server-sample
 
-[protoactor-go](https://github.com/asynkron/protoactor-go) を使った HTTP サーバーのサンプルです。
+[protoactor-go](https://github.com/asynkron/protoactor-go) を使ったサンプルです。
 
-[simple](./simple) はアクターシステムとHTTPサーバを起動して処理するサンプルです。  
+このサンプルはアクターモデル勉強会・およびハンズオンで利用するものです。   
+勉強会の内容やハンズオン資料などについてはお問い合わせください。  
 
-[ticket](./ticket) はアクターシステムとHTTPサーバを起動してチケットを発行するサンプルです。
 
-## 使い方
+| dir                  |                                    |
+|:---------------------|:-----------------------------------|
+| [simple](./simple)   | アクターシステムとHTTPサーバを起動して処理するサンプル      |
+| [ticket](./ticket)   | アクターシステムとHTTPサーバを起動してチケットを発行するサンプル |
+| [routing](./routing) | アクターのルーティングサンプル                    |
+
+## 使い方例
 
 ```sh
 $ cd simple

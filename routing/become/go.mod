@@ -1,4 +1,4 @@
-module github.com/ytake/protoactor-go-http/switch_router
+module github.com/ytake/protoactor-go-http/become
 
 go 1.21.0
 
