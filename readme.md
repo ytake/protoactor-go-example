@@ -1,10 +1,11 @@
-# proto actor go / http-server-sample
+# proto actor go sample 
 
 [protoactor-go](https://github.com/asynkron/protoactor-go) を使ったサンプルです。
 
 このサンプルはアクターモデル勉強会・およびハンズオンで利用するものです。   
 勉強会の内容やハンズオン資料などについてはお問い合わせください。  
 
+リポジトリにHTTPとありますが、HTTPサーバ以外のサンプルの方が多いです。  
 
 | dir                  |                                    |
 |:---------------------|:-----------------------------------|
