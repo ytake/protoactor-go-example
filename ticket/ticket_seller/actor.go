@@ -15,7 +15,7 @@ func NewTicketSellerActor() actor.Actor {
 	return &TicketSellerActor{}
 }
 
-// Receive is sent messages to be processed from the mailbox associated with the instance of the ticket_actor
+// Receive is sent messages to be processed from the mailbox associated with the instance of the root
 func (t *TicketSellerActor) Receive(context actor.Context) {
 	switch msg := context.Message().(type) {
 	case *message.Add:

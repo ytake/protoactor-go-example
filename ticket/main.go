@@ -1,14 +1,15 @@
 package main
 
 import (
-	"github.com/labstack/echo/v4"
-	"github.com/ytake/protoactor-go-http/ticket/route"
-	"github.com/ytake/protoactor-go-http/ticket/ticket_actor"
 	"log"
+
+	"github.com/labstack/echo/v4"
+	"github.com/ytake/protoactor-go-http/ticket/root"
+	"github.com/ytake/protoactor-go-http/ticket/route"
 )
 
 func main() {
-	as, err := ticket_actor.NewBoxOfficeActorSystem()
+	as, err := root.NewBoxOfficeActorSystem()
 	if err != nil {
 		log.Fatal(err)
 	}

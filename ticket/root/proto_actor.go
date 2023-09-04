@@ -1,7 +1,8 @@
-package ticket_actor
+package root
 
 import (
 	"fmt"
+
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/ytake/protoactor-go-http/ticket/box_office"
 )

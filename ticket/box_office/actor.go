@@ -3,11 +3,12 @@ package box_office
 import (
 	"errors"
 	"fmt"
+	"sync"
+	"time"
+
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/ytake/protoactor-go-http/ticket/message"
 	"github.com/ytake/protoactor-go-http/ticket/ticket_seller"
-	"sync"
-	"time"
 )
 
 const (
@@ -20,7 +21,7 @@ func NewBoxOfficeAPIActor() actor.Actor {
 	return &BoxOfficeActor{}
 }
 
-// Receive is sent messages to be processed from the mailbox associated with the instance of the ticket_actor
+// Receive is sent messages to be processed from the mailbox associated with the instance of the root
 func (r *BoxOfficeActor) Receive(context actor.Context) {
 	switch msg := context.Message().(type) {
 	case *message.EventDescription:

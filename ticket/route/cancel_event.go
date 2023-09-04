@@ -1,21 +1,22 @@
 package route
 
 import (
+	"net/http"
+	"time"
+
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/labstack/echo/v4"
 	"github.com/ytake/protoactor-go-http/ticket/message"
-	"github.com/ytake/protoactor-go-http/ticket/ticket_actor"
-	"net/http"
-	"time"
+	"github.com/ytake/protoactor-go-http/ticket/root"
 )
 
 // CancelEvent is a router
 type CancelEvent struct {
-	actor *ticket_actor.Root
+	actor *root.Root
 }
 
 // NewCancelEvent create new instance
-func NewCancelEvent(actor *ticket_actor.Root) *CancelEvent {
+func NewCancelEvent(actor *root.Root) *CancelEvent {
 	return &CancelEvent{
 		actor: actor,
 	}

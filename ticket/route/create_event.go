@@ -1,20 +1,21 @@
 package route
 
 import (
-	"github.com/asynkron/protoactor-go/actor"
-	"github.com/labstack/echo/v4"
-	"github.com/ytake/protoactor-go-http/ticket/message"
-	"github.com/ytake/protoactor-go-http/ticket/ticket_actor"
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/asynkron/protoactor-go/actor"
+	"github.com/labstack/echo/v4"
+	"github.com/ytake/protoactor-go-http/ticket/message"
+	"github.com/ytake/protoactor-go-http/ticket/root"
 )
 
 type CreateEvent struct {
-	actor *ticket_actor.Root
+	actor *root.Root
 }
 
-func NewCreateEvent(actor *ticket_actor.Root) *CreateEvent {
+func NewCreateEvent(actor *root.Root) *CreateEvent {
 	return &CreateEvent{
 		actor: actor,
 	}

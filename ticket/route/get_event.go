@@ -1,21 +1,22 @@
 package route
 
 import (
+	"net/http"
+	"time"
+
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/labstack/echo/v4"
 	"github.com/ytake/protoactor-go-http/ticket/message"
 	"github.com/ytake/protoactor-go-http/ticket/payload"
-	"github.com/ytake/protoactor-go-http/ticket/ticket_actor"
-	"net/http"
-	"time"
+	"github.com/ytake/protoactor-go-http/ticket/root"
 )
 
 type GetEvent struct {
-	actor *ticket_actor.Root
+	actor *root.Root
 }
 
 // NewGetEvent create new instance
-func NewGetEvent(actor *ticket_actor.Root) *GetEvent {
+func NewGetEvent(actor *root.Root) *GetEvent {
 	return &GetEvent{
 		actor: actor,
 	}
