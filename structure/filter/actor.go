@@ -13,7 +13,7 @@ type Speed struct {
 	license  *actor.PID
 }
 
-// NewSpeed is actor
+// NewSpeed is scattergather
 func NewSpeed(minSpeed int, license *actor.PID) actor.Actor {
 	return &Speed{minSpeed: minSpeed, license: license}
 }

@@ -7,7 +7,7 @@ import (
 	"github.com/asynkron/protoactor-go/actor"
 )
 
-// SwitchRouter is actor
+// SwitchRouter is scattergather
 type SwitchRouter struct {
 	behavior actor.Behavior
 }
