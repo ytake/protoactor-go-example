@@ -1,7 +1,6 @@
 package filter
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/asynkron/protoactor-go/actor"
@@ -43,7 +42,6 @@ func (l *License) Receive(context actor.Context) {
 	switch msg := context.Message().(type) {
 	case *message.Photo:
 		if !msg.NoLicense() {
-			fmt.Println("sending photo", msg.License)
 			context.Respond(msg)
 		}
 	}
