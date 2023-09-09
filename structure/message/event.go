@@ -18,11 +18,36 @@ func (p *Photo) NoLicense() bool {
 	return p.License == ""
 }
 
+// PhotoMessage is a message
 type PhotoMessage struct {
 	ID           string
 	Photo        string
 	CreationTime *time.Time
 	Speed        *int
+}
+
+// IllegalStatePanicMessage is a message
+// 意図的にパニックを起こすメッセージ
+type IllegalStatePanicMessage struct{}
+
+// HasCreationTime is a PhotoMessage
+func (p *PhotoMessage) HasCreationTime() bool {
+	return p.CreationTime != nil
+}
+
+// HasSpeed is a PhotoMessage
+func (p *PhotoMessage) HasSpeed() bool {
+	return p.Speed != nil
+}
+
+// UpdatePhotoMessage is a PhotoMessage
+func (p *PhotoMessage) UpdatePhotoMessage(this *PhotoMessage) {
+	if this.HasCreationTime() {
+		p.CreationTime = this.CreationTime
+	}
+	if this.HasSpeed() {
+		p.Speed = this.Speed
+	}
 }
 
 type TimeoutMessage struct {
