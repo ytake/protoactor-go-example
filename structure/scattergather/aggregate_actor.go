@@ -67,10 +67,9 @@ func (state *Aggregator) Receive(ctx actor.Context) {
 	case *actor.ReceiveTimeout:
 		// タイムアウトが発生した場合（メッセージが一件しかない場合）
 		// タイムアウトはproto actorではactor.ReceiveTimeoutというメッセージが送られる
-		if len(state.messages) == 0 {
-			return
+		for _, m := range state.messages {
+			ctx.Send(state.pipe, m)
 		}
-		ctx.Send(state.pipe, state.messages[0])
 	case *message.IllegalStatePanicMessage:
 		// 意図的にパニックを起こすメッセージを受信するとパニックを検知して、
 		// Aggregatorのメッセージを持っている状態で停止する
