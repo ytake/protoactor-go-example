@@ -14,10 +14,11 @@
 車の制限速度のチェックを例にしたものです
 
 ```mermaid
-graph TD;
-    なにかしらのアクター --> 速度チェックアクター;
-    速度チェックアクター -->　ナンバープレートチェックアクター;
+flowchart TD
+    画像 --> 速度チェックアクター;
+    速度チェックアクター --> ナンバープレートチェックアクター;
     ナンバープレートチェックアクター --> 処理結果メッセージ送信;
+
 ```
 
 パイプ・フィルターパターンは一般的なフィルター処理と同じです。
@@ -25,13 +26,17 @@ graph TD;
 ## スキャッターギャザーパターン
 
 ```mermaid
-graph TD;
-    なにかしらのアクター --> RecipientListアクター;
-    RecipientListアクター -->　GetTimeアクター;
-    RecipientListアクター -->　GetSpeedアクター;
-    GetTimeアクター --> Aggregateアクター;
-    GetSpeedアクター --> Aggregateアクター;
-    Aggregateアクター --> 処理結果メッセージ送信;
+graph TD
+    画像ファイル --> RecipientListアクター;
+
+subgraph stream
+RecipientListアクター --> GetTimeアクター;
+RecipientListアクター --> GetSpeedアクター;
+GetTimeアクター --> Aggregateアクター;
+GetSpeedアクター --> Aggregateアクター;
+end
+
+    Aggregateアクター --> 結合メッセージ;
 ```
 
 このサンプルでは、写真から時間と速度を求める処理を例にしています。  
