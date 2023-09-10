@@ -2,9 +2,9 @@
 
 [protoactor-go](https://github.com/asynkron/protoactor-go) を使ったサンプルです。
 
-Akka in ActionのコードをProto.Actorに置き換えたら、のサンプルになっていますので、　 
-翻訳版のAkka実践バイブルなどをお持ちの方は、　 
-そちらと合わせてご覧ください。  
+Akka in ActionのコードをProto.Actorに置き換えたら、のサンプルになっていますので、　  
+翻訳版のAkka実践バイブルなどをお持ちの方は、　  
+そちらと合わせてご覧ください。
 
 Proto Actor(Go)は、Akka/Pekkoのようなアクターモデルを実現するためのライブラリで、  
 Akka Typedが導入される前のAkkaのようなAPIを提供しています。  
