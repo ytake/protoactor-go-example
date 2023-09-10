@@ -70,6 +70,7 @@ func (state *Aggregator) Receive(ctx actor.Context) {
 		for _, m := range state.messages {
 			ctx.Send(state.pipe, m)
 		}
+		state.messages = nil
 	case *message.IllegalStatePanicMessage:
 		// 意図的にパニックを起こすメッセージを受信するとパニックを検知して、
 		// Aggregatorのメッセージを持っている状態で停止する
