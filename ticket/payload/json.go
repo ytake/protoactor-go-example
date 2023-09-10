@@ -1,7 +1,7 @@
 package payload
 
 import (
-	"github.com/ytake/protoactor-go-http/ticket/message"
+	"github.com/ytake/protoactor-go-example/ticket/message"
 )
 
 // Event is a payload

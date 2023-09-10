@@ -1,4 +1,4 @@
-module github.com/ytake/protoactor-go-http/structure
+module github.com/ytake/protoactor-go-example/structure
 
 go 1.21.0
 

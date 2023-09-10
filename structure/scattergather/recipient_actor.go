@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/asynkron/protoactor-go/actor"
-	"github.com/ytake/protoactor-go-http/structure/message"
+	"github.com/ytake/protoactor-go-example/structure/message"
 )
 
 type RecipientList struct {

@@ -1,4 +1,4 @@
-module github.com/ytake/protoactor-go-http/routing/unbecome
+module github.com/ytake/protoactor-go-example/routing/unbecome
 
 go 1.21.0
 

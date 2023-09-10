@@ -7,8 +7,8 @@ import (
 
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/labstack/echo/v4"
-	"github.com/ytake/protoactor-go-http/ticket/message"
-	"github.com/ytake/protoactor-go-http/ticket/root"
+	"github.com/ytake/protoactor-go-example/ticket/message"
+	"github.com/ytake/protoactor-go-example/ticket/root"
 )
 
 type CreateEvent struct {

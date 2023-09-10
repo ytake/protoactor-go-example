@@ -2,7 +2,7 @@ package ticket_seller
 
 import (
 	"github.com/asynkron/protoactor-go/actor"
-	"github.com/ytake/protoactor-go-http/ticket/message"
+	"github.com/ytake/protoactor-go-example/ticket/message"
 )
 
 // TicketSellerActor is  Actor

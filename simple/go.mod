@@ -1,4 +1,4 @@
-module github.com/ytake/protoactor-go-http/simple
+module github.com/ytake/protoactor-go-example/simple
 
 go 1.21.0
 

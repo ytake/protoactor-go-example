@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/asynkron/protoactor-go/actor"
-	"github.com/ytake/protoactor-go-http/ticket/box_office"
+	"github.com/ytake/protoactor-go-example/ticket/box_office"
 )
 
 type Root struct {

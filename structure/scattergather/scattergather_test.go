@@ -7,7 +7,7 @@ import (
 
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/asynkron/protoactor-go/stream"
-	"github.com/ytake/protoactor-go-http/structure/message"
+	"github.com/ytake/protoactor-go-example/structure/message"
 )
 
 func TestScatterGather(t *testing.T) {

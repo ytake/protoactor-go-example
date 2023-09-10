@@ -1,4 +1,4 @@
-module github.com/ytake/protoactor-go-http/ticket
+module github.com/ytake/protoactor-go-example/ticket
 
 go 1.21
 

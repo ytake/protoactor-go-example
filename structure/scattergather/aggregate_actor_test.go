@@ -7,8 +7,8 @@ import (
 
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/asynkron/protoactor-go/stream"
-	"github.com/ytake/protoactor-go-http/structure/message"
-	"github.com/ytake/protoactor-go-http/structure/process"
+	"github.com/ytake/protoactor-go-example/structure/message"
+	"github.com/ytake/protoactor-go-example/structure/process"
 )
 
 func makeCreatePhotoString(ti time.Time, s int) string {

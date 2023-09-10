@@ -6,9 +6,9 @@ import (
 
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/labstack/echo/v4"
-	"github.com/ytake/protoactor-go-http/ticket/message"
-	"github.com/ytake/protoactor-go-http/ticket/payload"
-	"github.com/ytake/protoactor-go-http/ticket/root"
+	"github.com/ytake/protoactor-go-example/ticket/message"
+	"github.com/ytake/protoactor-go-example/ticket/payload"
+	"github.com/ytake/protoactor-go-example/ticket/root"
 )
 
 type GetEvent struct {

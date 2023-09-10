@@ -1,4 +1,4 @@
-module github.com/ytake/protoactor-go-http/become
+module github.com/ytake/protoactor-go-example/become
 
 go 1.21.0
 

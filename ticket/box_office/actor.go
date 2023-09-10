@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/asynkron/protoactor-go/actor"
-	"github.com/ytake/protoactor-go-http/ticket/message"
-	"github.com/ytake/protoactor-go-http/ticket/ticket_seller"
+	"github.com/ytake/protoactor-go-example/ticket/message"
+	"github.com/ytake/protoactor-go-example/ticket/ticket_seller"
 )
 
 const (

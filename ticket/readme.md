@@ -2,8 +2,6 @@
 
 ## 概要
 
-Akka in ActionのコードをProto.Actorに置き換えたら、のコードです。  
-
 アクターは下記の通りです。  
 
 Root <-> Box Office <-> Ticket Seller 

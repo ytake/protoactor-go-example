@@ -4,8 +4,8 @@ import (
 	"log"
 
 	"github.com/labstack/echo/v4"
-	"github.com/ytake/protoactor-go-http/ticket/root"
-	"github.com/ytake/protoactor-go-http/ticket/route"
+	"github.com/ytake/protoactor-go-example/ticket/root"
+	"github.com/ytake/protoactor-go-example/ticket/route"
 )
 
 func main() {
