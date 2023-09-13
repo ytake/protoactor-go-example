@@ -13,10 +13,10 @@ func (_ *RouteSlip) SendMessageToNextTask(context actor.Context, routeSlip []*ac
 	newSlip := routeSlip[1:]
 	if len(newSlip) == 0 {
 		context.Send(nextTask, msg)
-	} else {
-		context.Send(nextTask, &message.RouteSlip{
-			RouteSlip: newSlip,
-			Message:   msg,
-		})
+		return
 	}
+	context.Send(nextTask, &message.RouteSlip{
+		RouteSlip: newSlip,
+		Message:   msg,
+	})
 }
