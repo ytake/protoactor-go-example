@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package protobuf;
+
+option go_package = "github.com/ytake/protoactor-go-example/persistence/protobuf";
+
+message CalculationResult {
+  double result = 1;
+}

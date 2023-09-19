@@ -16,7 +16,9 @@ func (state *PaintCar) Receive(context actor.Context) {
 	case *message.RouteSlip:
 		switch car := msg.Message.(type) {
 		case *message.Car:
-			car.Color = state.Color
+			nc := car
+			nc.Color = state.Color
+			msg.Message = nc
 		}
 		state.SendMessageToNextTask(context, msg.RouteSlip, msg.Message)
 	}
@@ -31,7 +33,9 @@ func (state *AddNavigation) Receive(context actor.Context) {
 	case *message.RouteSlip:
 		switch car := msg.Message.(type) {
 		case *message.Car:
-			car.HasNavigation = true
+			nc := car
+			nc.HasNavigation = true
+			msg.Message = nc
 		}
 		state.SendMessageToNextTask(context, msg.RouteSlip, msg.Message)
 	}
@@ -46,7 +50,9 @@ func (state *AddParkingSensor) Receive(context actor.Context) {
 	case *message.RouteSlip:
 		switch car := msg.Message.(type) {
 		case *message.Car:
-			car.HasParkingSensors = true
+			nc := car
+			nc.HasParkingSensors = true
+			msg.Message = nc
 		}
 		state.SendMessageToNextTask(context, msg.RouteSlip, msg.Message)
 	}
