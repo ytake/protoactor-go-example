@@ -1,6 +1,6 @@
 package calculator
 
-import "github.com/ytake/protoactor-go-example/persistence/protobuf"
+import "github.com/ytake/protoactor-go-example/persistence/calculator/protobuf"
 
 // CalculationResult is a struct that holds the result of a calculation.
 type CalculationResult struct {

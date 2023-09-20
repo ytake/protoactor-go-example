@@ -5,7 +5,7 @@ import (
 
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/asynkron/protoactor-go/persistence"
-	"github.com/ytake/protoactor-go-example/persistence/command"
+	"github.com/ytake/protoactor-go-example/persistence/calculator/command"
 )
 
 type PersistenceActor struct {

@@ -28,6 +28,6 @@ Akka Typedが導入される前のAkkaのようなAPIを提供しています。
 ## 使い方例
 
 ```sh
-$ cd simple
+$ cd calculator
 $ go run main.go
 ```

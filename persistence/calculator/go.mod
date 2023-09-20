@@ -1,4 +1,4 @@
-module github.com/ytake/protoactor-go-example/persistence
+module github.com/ytake/protoactor-go-example/persistence/calculator
 
 go 1.21.1
 

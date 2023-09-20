@@ -8,9 +8,9 @@ import (
 
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/asynkron/protoactor-go/persistence"
-	"github.com/ytake/protoactor-go-example/persistence/command"
-	"github.com/ytake/protoactor-go-example/persistence/protobuf"
-	"github.com/ytake/protoactor-go-example/persistence/provider"
+	"github.com/ytake/protoactor-go-example/persistence/calculator/command"
+	"github.com/ytake/protoactor-go-example/persistence/calculator/protobuf"
+	"github.com/ytake/protoactor-go-example/persistence/calculator/provider"
 )
 
 func TestPersistenceActor_Receive(t *testing.T) {

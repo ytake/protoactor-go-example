@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package protobuf;
+
+option go_package = "github.com/ytake/protoactor-go-example/persistence/basket/protobuf";
+
+message Item {
+  string productID = 1;
+  int32 number = 2;
+  float unitPrice = 3;
+}
+
+message Items {
+  repeated Item items = 1;
+}
