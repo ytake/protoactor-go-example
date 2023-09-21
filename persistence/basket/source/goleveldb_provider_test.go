@@ -1,13 +1,12 @@
 package source
 
 import (
-	"fmt"
 	"os"
 	"reflect"
 	"testing"
 
-	"github.com/ytake/protoactor-go-example/persistence/basket/basket"
 	"github.com/ytake/protoactor-go-example/persistence/basket/protobuf"
+	"github.com/ytake/protoactor-go-example/persistence/basket/value"
 )
 
 const dbDir = "../db/testing"
@@ -26,11 +25,12 @@ func TestMain(m *testing.M) {
 }
 
 func TestGoLevelDBProvider_PersistEvent(t *testing.T) {
-	p, err := NewGoLevelDBProvider(1, dbDir)
+	p, err := NewGoLevelDBProvider(3, dbDir)
+	defer p.db.Close()
 	if err != nil {
 		t.Errorf("failed to create provider: %v", err)
 	}
-	item := &basket.Item{Item: &protobuf.Item{ProductID: "1234", Number: 1, UnitPrice: 1000}}
+	item := &value.Item{Item: &protobuf.Item{ProductID: "1234", Number: 1, UnitPrice: 1000}}
 	p.PersistEvent("test", 1, item)
 	p.GetEvents("test", 1, 1, func(e interface{}) {
 		if !reflect.DeepEqual(e, item.Item) {
@@ -40,17 +40,17 @@ func TestGoLevelDBProvider_PersistEvent(t *testing.T) {
 }
 
 func TestGoLevelDBProvider_PersistSnapshot(t *testing.T) {
-	p, err := NewGoLevelDBProvider(1, dbDir)
+	p, err := NewGoLevelDBProvider(3, dbDir)
+	defer p.db.Close()
 	if err != nil {
 		t.Errorf("failed to create provider: %v", err)
 	}
-	item := &basket.Item{Item: &protobuf.Item{ProductID: "1234", Number: 1, UnitPrice: 1000}}
+	item := &value.Item{Item: &protobuf.Item{ProductID: "1234", Number: 1, UnitPrice: 1000}}
 	p.PersistSnapshot("test", 1, item)
 	snapshot, _, ok := p.GetSnapshot("test")
 	if !ok {
 		t.Errorf("snapshot not found")
 	}
-	fmt.Println(snapshot, ok)
 	if !reflect.DeepEqual(snapshot, item.Item) {
 		t.Errorf("invalid snapshot")
 	}

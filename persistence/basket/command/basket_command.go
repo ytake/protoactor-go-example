@@ -1,6 +1,17 @@
 package command
 
+import (
+	"github.com/ytake/protoactor-go-example/persistence/basket/value"
+)
+
 type Add struct {
+	Item      *value.Item
+	ShopperID int
+}
+
+type Replace struct {
+	Items     *value.Items
+	ShopperID int
 }
 
 type RemoveItem struct {

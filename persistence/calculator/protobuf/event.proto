@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package protobuf;
+
+option go_package = "github.com/ytake/protoactor-go-example/persistence/calculator/event";
+
+message Added {
+  double result = 1;
+}
+
+message Subtracted {
+  double result = 1;
+}
+
+message Divided {
+  double result = 1;
+}
+
+message Multiplied {
+  double result = 1;
+}
+
+message Reset {}

@@ -1,6 +1,8 @@
-package basket
+package value
 
-import "github.com/ytake/protoactor-go-example/persistence/basket/protobuf"
+import (
+	"github.com/ytake/protoactor-go-example/persistence/basket/protobuf"
+)
 
 // Item is a struct
 type Item struct {
@@ -8,7 +10,7 @@ type Item struct {
 }
 
 type Items struct {
-	Items *protobuf.Items
+	*protobuf.Items
 }
 
 // Aggregate aggregates two items.
@@ -89,4 +91,8 @@ func (items *Items) UpdateItem(productID string, number int) *Items {
 		}
 	}
 	return AggregateItems(newList)
+}
+
+func (items *Items) Clear() *Items {
+	return AggregateItems([]*protobuf.Item{})
 }

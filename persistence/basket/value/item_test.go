@@ -1,4 +1,4 @@
-package basket
+package value
 
 import (
 	"fmt"

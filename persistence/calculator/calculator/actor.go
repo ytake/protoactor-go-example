@@ -6,6 +6,8 @@ import (
 	"github.com/asynkron/protoactor-go/actor"
 	"github.com/asynkron/protoactor-go/persistence"
 	"github.com/ytake/protoactor-go-example/persistence/calculator/command"
+	"github.com/ytake/protoactor-go-example/persistence/calculator/event"
+	"google.golang.org/protobuf/proto"
 )
 
 type PersistenceActor struct {
@@ -27,15 +29,15 @@ func (pa *PersistenceActor) Receive(ctx actor.Context) {
 	case *persistence.RequestSnapshot:
 		pa.PersistSnapshot(pa.state)
 	case *command.Add:
-		pa.persist(pa.state.Add(msg.Value))
+		pa.persist(&event.Added{Result: msg.Value})
 	case *command.Subtract:
-		pa.persist(pa.state.Subtract(msg.Value))
+		pa.persist(&event.Subtracted{Result: msg.Value})
 	case *command.Divide:
-		pa.persist(pa.state.Divide(msg.Value))
+		pa.persist(&event.Divided{Result: msg.Value})
 	case *command.Multiply:
-		pa.persist(pa.state.Multiply(msg.Value))
+		pa.persist(&event.Multiplied{Result: msg.Value})
 	case *command.Clear:
-		pa.persist(pa.state.Reset())
+		pa.persist(&event.Reset{})
 	case *command.GetResult:
 		ctx.Respond(pa.state)
 	case *command.PrintResult:
@@ -43,9 +45,20 @@ func (pa *PersistenceActor) Receive(ctx actor.Context) {
 	}
 }
 
-func (pa *PersistenceActor) persist(msg *CalculationResult) {
+func (pa *PersistenceActor) persist(msg proto.Message) {
 	if !pa.Recovering() {
 		pa.PersistReceive(msg)
 	}
-	pa.state = msg
+	switch ev := msg.(type) {
+	case *event.Added:
+		pa.state.Add(ev.Result)
+	case *event.Subtracted:
+		pa.state.Subtract(ev.Result)
+	case *event.Divided:
+		pa.state.Divide(ev.Result)
+	case *event.Multiplied:
+		pa.state.Multiply(ev.Result)
+	case *event.Reset:
+		pa.state.Reset()
+	}
 }

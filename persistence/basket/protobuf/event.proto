@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package protobuf;
+
+import "item.proto";
+option go_package = "github.com/ytake/protoactor-go-example/persistence/basket/event";
+
+message Added {
+  Item item = 1;
+}
+
+message ItemRemoved {
+  string productID = 1;
+}
+
+message ItemUpdated {
+  string productID = 1;
+  int32 number = 2;
+}
+
+message Cleared {
+  Items items = 1;
+}
+
+message Replaced {
+  Items items = 1;
+}
